@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this data or software, please cite it as below."
+authors:
+  - name: Center for Open Bioimage Analysis (COBA)
+    website: https://openbioimageanalysis.org/
+  - name: BioImaging North America (BINA)
+    website: https://www.bioimagingnorthamerica.org/
+  - name: Royal Microscopy Society(RMS)
+    website: https://www.rms.org.uk/
+  - name: Global BioImage Analysts' Society (GloBias)
+    website: https://www.globias.org/home
+title: "2024 Bridging Imaging Users to Imaging Analysis Survey"
+version: 0.1
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17127544
+date-released: 2025-09-15
