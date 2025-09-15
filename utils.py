@@ -250,8 +250,14 @@ def plot_single_vs_multi(df_grouped,
                         legend_title,
                         plot_filename,
                         plottitle,
-                        groupbyfirstcol=True):
+                        groupbyfirstcol=True,
+                        colsort=False,
+                        colorlist=False):
     df = df_grouped.melt(id_vars=df_grouped.columns[0])
+    if colsort:
+        df = df.sort_values(by='variable', key=lambda x: x.map({k: i for i, k in enumerate(colsort)}))
+    if not colorlist:
+        colorlist=sns.color_palette("Paired")
 
     fig, ax = plt.subplots()
     ax.xaxis.set_tick_params(rotation=90)
@@ -261,7 +267,7 @@ def plot_single_vs_multi(df_grouped,
         p = (so.Plot(df,x=df.columns[0],y='value', color=df.columns[1])
         .add(so.Bar(), so.Agg(),so.Stack())
         .label(title=plottitle)
-        .scale(color=sns.color_palette("Paired"))
+        .scale(color=colorlist)
         .on(ax)
         )
     else:
@@ -269,7 +275,7 @@ def plot_single_vs_multi(df_grouped,
         p = (so.Plot(df,x=df.columns[1],y='value', color=df.columns[0])
         .add(so.Bar(), so.Agg(),so.Stack())
         .label(title=plottitle)
-        .scale(color=sns.color_palette("Paired"))
+        .scale(color=colorlist)
         .on(ax)
         )
     
